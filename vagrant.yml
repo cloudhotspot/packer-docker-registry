@@ -1,0 +1,38 @@
+registry:
+  box: cloudhotspot/docker-trusted-registry
+  memory: 1024
+  cpu: 1
+  aws:
+    private_key_path: ~/.ssh/aws
+    region: us-west-2
+    keypair_name: "Justin Menga"
+    ami: ami-929e8df3
+    subnet_id: subnet-672f7910
+    associate_public_ip: true
+    elastic_ip: true
+    instance_type: t2.small
+    security_groups:
+      - sg-ad6244c9
+    tags:
+      application: docker-registry
+      environment: playground
+
+# ubuntu:
+#   box: cloudhotspot/ubuntu
+#   aws:
+#     private_key_path: ~/.ssh/aws
+#     region: us-west-2
+#     keypair_name: "Justin Menga"
+#     ami: ami-9ad9c9fb
+#     subnet_id: subnet-97452df2
+#     associate_public_ip: true
+#     elastic_ip: true
+#     instance_type: t2.small
+#     block_device_mapping:
+#       - "DeviceName": /dev/sda1
+#         "Ebs.VolumeSize": 20
+#     security_groups:
+#       - sg-a9b7e4cd
+#     tags:
+#       application: ansible-tower
+#       environment: playground
